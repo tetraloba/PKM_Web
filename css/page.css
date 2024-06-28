@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+}
+.line {
+    background-color: black;
+    color: gray;
+    width: 50%;
+}
