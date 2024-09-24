@@ -37,7 +37,7 @@ function create_content(){
     /* 3行の空行を追加 */
     for (let i = 0; i < 3; i++) {
         const data = document.createElement('input');
-        data.value = "\n";
+        data.value = "test";
         data.name = 'lines[' + i + ']';
         form.appendChild(data);
     }
