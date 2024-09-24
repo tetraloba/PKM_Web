@@ -6,7 +6,7 @@ if (!isset($_GET['page'])) {
     html_exit("ページが選択されていません"); // 新しいページを生成する，でも良いかな
 }
 $page_filename = $_GET['page'];
-$lines = open("{$dir_data}/{$page_filename}"); // path.join()無いのか…
+$lines = file("{$dir_data}/{$page_filename}"); // path.join()無いのか…
 if (!$file) {
     html_exit("プレイリスト {$playlist_filename} を開けませんでした。");
 }
