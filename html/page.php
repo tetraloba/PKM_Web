@@ -12,7 +12,7 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
     var_dump($lines); // debug
-    $data = implode("\n", $lines); // 文字列配列$linesを一つの文字列に．
+    $data = implode("", $lines); // 文字列配列$linesを一つの文字列に．
     $data = urldecode($data); // URLエンコードを還元する．JSのencodeURIComponent()の逆
     $data = html_entity_decode($data); // HTMLエンティティを本来の文字に還元 &amp; → &
     file_put_contents($page_filepath, $data);
