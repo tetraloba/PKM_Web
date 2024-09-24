@@ -12,6 +12,7 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
     var_dump($lines);
+    var_dump($_POST['debug_lines']); // debug
     file_put_contents($page_filepath, $lines);
 }
 
