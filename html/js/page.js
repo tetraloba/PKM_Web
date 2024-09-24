@@ -17,7 +17,7 @@ function post_content(){
     let index = 0;
     for (line of text_area.children) {
         const data = document.createElement('input');
-        data.value = line.textContent;
+        data.value = line.textContent + '\n';
         data.name = 'lines[' + index + ']';
         form.appendChild(data);
         index++;
