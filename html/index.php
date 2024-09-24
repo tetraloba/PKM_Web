@@ -12,7 +12,8 @@ $contents = glob("{$dir_data}/*");
 tbl_line(['タイトル', '日時', '本文プレビュー']);
 foreach ($contents as $content) {
     // echo $content;
-    $lines = file($content);
+    $content_string = file_get_contents($content, FALSE, NULL, 0, 100);
+    $lines = explode("\n", $content_string);
     tbl_line([
         '<a href="./page.php?page='.pathinfo($content, PATHINFO_BASENAME).'">'.$lines[0].'</a>',
         $lines[1],
@@ -26,6 +27,8 @@ foreach ($contents as $content) {
 }
 ?>
 </table><br>
+<input type="button" onclick="create_content()" value="新規作成"><br>
+<script src="./js/page.js"></script>
 
 <?php
 close_html();

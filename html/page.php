@@ -10,9 +10,19 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 
 /* POSTメソッドで呼び出された場合，ファイルを更新する． */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $lines = $_POST['lines'];
-    // var_dump($lines); // debug
-    $data = implode("\n", $lines); // 文字列配列$linesを一つの文字列に．
+    if (isset($_POST['lines'])) {
+        $lines = $_POST['lines'];
+    } else {
+        /* linesが設定されていない場合は新規作成 */
+        $lines = [];
+    }
+    /* linesが要素数3未満の場合は要素数3になるまで空行を追加 */
+    for ($i = count($lines); $i < 3; $i++) {
+        array_push($lines, '%0A');
+    }
+    var_dump($lines); // debug
+    $data = implode("", $lines); // 文字列配列$linesを一つの文字列に．
+    $data = urldecode($data); // URLエンコードを還元する．JSのencodeURIComponent()の逆
     $data = html_entity_decode($data); // HTMLエンティティを本来の文字に還元 &amp; → &
     file_put_contents($page_filepath, $data);
 }

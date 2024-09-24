@@ -17,13 +17,23 @@ function post_content(){
     let index = 0;
     for (line of text_area.children) {
         const data = document.createElement('input');
-        data.value = line.textContent;
+        data.value = encodeURIComponent(line.textContent.replace("\n", '') + "\n");
         data.name = 'lines[' + index + ']';
         form.appendChild(data);
         index++;
     }
 
     document.body.appendChild(form); // documentに紐づけないとエラーが出る "Form submission canceled because the form is not connected"
+    form.submit();
+}
 
+function create_content(){
+    const date = new Date();
+    const page_path = date.toISOString().replaceAll('-', '').replaceAll('T', '').replaceAll(':', '').substring(0,14) + '.txt'; // 日時.txt
+    const form = document.createElement('form');
+    form.action = './page.php?page=' + page_path; // /page.php?=日付.txt
+    form.method = 'post';
+
+    document.body.appendChild(form);
     form.submit();
 }
