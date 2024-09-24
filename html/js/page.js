@@ -35,14 +35,12 @@ function create_content(){
     form.method = 'post';
 
     /* 3行の空行を追加 */
-    const data = document.createElement('input');
-    data.value = "\n";
-    data.name = 'lines[0]';
-    form.appendChild(data);
-    data.name = 'lines[1]';
-    form.appendChild(data);
-    data.name = 'lines[2]';
-    form.appendChild(data);
+    for (let i = 0; i < 3; i++) {
+        const data = document.createElement('input');
+        data.value = "\n";
+        data.name = 'lines[' + i + ']';
+        form.appendChild(data);
+    }
 
     document.body.appendChild(form);
     form.submit();
