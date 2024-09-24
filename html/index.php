@@ -27,6 +27,7 @@ foreach ($contents as $content) {
 ?>
 </table><br>
 <input type="button" onclick="create_content()" value="新規作成"><br>
+<script src="./js/page.js"></script>
 
 <?php
 close_html();
