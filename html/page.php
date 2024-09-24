@@ -12,7 +12,7 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
     var_dump($lines); // debug
-    for (int i = count($lines); i < 3; i++) { // 要素数が3未満なら3になるまで空行を追加
+    for ($i = count($lines); $i < 3; $i++) { // 要素数が3未満なら3になるまで空行を追加
         array_push($lines, "%0A"); // URLエンコードされたLF
     }
     $data = implode("", $lines); // 文字列配列$linesを一つの文字列に．
