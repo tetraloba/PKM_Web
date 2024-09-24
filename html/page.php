@@ -33,9 +33,6 @@ if (!$lines) {
 
 <?php
 foreach ($lines as $line) {
-    if ($line == "\n") {
-        $line = '<br>';
-    }
     $line = htmlentities($line); // HTMLエンティティに変換 & → &amp;
     echo '<p class="line">'.$line.'</p>'."\n";
 }
