@@ -14,11 +14,10 @@ foreach ($contents as $content) {
     // echo $content;
     $lines = file($content);
     tbl_line([
-        pathinfo($content, PATHINFO_BASENAME),
-        pathinfo($content, PATHINFO_FILENAME),
-        $lines[0],
+        '<a href="./page.php?page='.pathinfo($content, PATHINFO_BASENAME).'">'.$lines[0].'</a>',
         $lines[1],
         $lines[2],
+        // pathinfo($content, PATHINFO_FILENAME),
     ]);
     // foreach ($lines as $line) {
     //     echo $line.' | ';
