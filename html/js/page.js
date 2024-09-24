@@ -31,7 +31,7 @@ function create_content(){
     const date = new Date();
     const page_path = date.toISOString().replaceAll('-', '').replaceAll('T', '').replaceAll(':', '').substring(0,14) + '.txt'; // 日時.txt
     const form = document.createElement('form');
-    form.action = '.?page=' + page_path; // /index.php?=日付.txt
+    form.action = './page.php?page=' + page_path; // /page.php?=日付.txt
     form.method = 'post';
 
     /* 3行の空行を追加 */
