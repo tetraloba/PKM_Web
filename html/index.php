@@ -12,7 +12,8 @@ $contents = glob("{$dir_data}/*");
 tbl_line(['タイトル', '日時', '本文プレビュー']);
 foreach ($contents as $content) {
     // echo $content;
-    $lines = file_get_contents($content);
+    $bytes = file_get_contents($content, FALSE, NULL, 0, 100);
+    $lines = $bytes.explode("\n");
     tbl_line([
         '<a href="./page.php?page='.pathinfo($content, PATHINFO_BASENAME).'">'.$lines[0].'</a>',
         $lines[1],
