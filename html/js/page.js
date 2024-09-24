@@ -29,7 +29,7 @@ function post_content(){
 
 function create_content(){
     const date = new Date();
-    const page_path = date.toISOString().replace('-', '').replace('T', '').replace(':', '').substring(0,14) + '.txt'; // 日時.txt
+    const page_path = date.toISOString().replaceAll('-', '').replaceAll('T', '').replaceAll(':', '').substring(0,14) + '.txt'; // 日時.txt
     const form = document.createElement('form');
     form.action = '.?page=' + page_path; // /index.php?=日付.txt
     form.method = 'post';
