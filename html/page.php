@@ -43,6 +43,6 @@ foreach ($lines as $line) {
 ?>
 
         </div>
-        <button onclick="post_content()">print</button>
+        <button onclick="post_content()">post</button>
     </body>
 </html>
