@@ -6,7 +6,18 @@ if (!isset($_GET['page'])) {
     html_exit("ページが選択されていません"); // 新しいページを生成する，でも良いかな
 }
 $page_filename = $_GET['page'];
-$lines = file("{$dir_data}/{$page_filename}"); // path.join()無いのか…
+$page_filepath = "{$dir_data}/{$page_filename}";
+
+/* POSTメソッドで呼び出された場合，ファイルを更新する． */
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $lines = $_POST['lines'];
+    // var_dump($lines); // debug
+    $data = implode("\n", $lines); // 文字列配列$linesを一つの文字列に．
+    $data = html_entity_decode($data); // HTMLエンティティを本来の文字に還元 &amp; → &
+    file_put_contents($page_filepath, $data);
+}
+
+$lines = file($page_filepath); // path.join()無いのか…
 if (!$lines) {
     html_exit("ページ {$page_filename} を開けませんでした。");
 }
@@ -22,11 +33,16 @@ if (!$lines) {
 
 <?php
 foreach ($lines as $line) {
-    echo '<p class="line">'.$line.'</p>';
+    if ($line == "\n") {
+        $line = '<br>';
+    } else {
+        $line = htmlentities($line); // HTMLエンティティに変換 & → &amp;
+    }
+    echo '<p class="line">'.$line.'</p>'."\n";
 }
 ?>
 
         </div>
-        <button onclick="print_content()">print</button>
+        <button onclick="post_content()">post</button>
     </body>
 </html>

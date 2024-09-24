@@ -2,6 +2,9 @@ body {
     background-color: black;
     color: white;
 }
+#text_area {
+    padding: 4px;
+}
 .line {
     background-color: black;
     color: gray;
