@@ -1,8 +1,12 @@
 body {
     background-color: black;
+    color: white;
 }
 .line {
     background-color: black;
     color: gray;
-    width: 50%;
+    margin: 0;
+}
+.line:first-child { /* 1行目，タイトルだけに反映される？ */
+    size: 40px;
 }

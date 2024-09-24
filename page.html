@@ -4,16 +4,10 @@
         <script src="./js/page.js"></script>
     </head>
     <body>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
-        <textarea class="line"></textarea><br>
+        <div id="text_area" contenteditable="true">
+            <p class="line" aria-placeholder="input here"></p>
+            <!-- <p class="line">input <a href="www.google.com">link</a> here</p> -->
+        </div>
+        <button onclick="print_content()">print</button>
     </body>
 </html>
