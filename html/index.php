@@ -14,7 +14,7 @@ foreach ($contents as $content) {
     echo $content;
     $lines = file($content);
     foreach ($lines as $line) {
-        echo $line;
+        echo $line.'<br>';
     }
 }
 ?>
