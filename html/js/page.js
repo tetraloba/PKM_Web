@@ -24,6 +24,26 @@ function post_content(){
     }
 
     document.body.appendChild(form); // documentに紐づけないとエラーが出る "Form submission canceled because the form is not connected"
+    form.submit();
+}
 
+function create_content(){
+    const date = new Date();
+    const page_path = date.toISOString().replace('-', '').replace('T', '').replace(':', '').substring(0,14) + '.txt'; // 日時.txt
+    const form = document.createElement('form');
+    form.action = '.?page=' + page_path; // /index.php?=日付.txt
+    form.method = 'post';
+
+    /* 3行の空行を追加 */
+    const data = document.createElement('input');
+    data.value = "\n";
+    data.name = 'lines[0]';
+    form.appendChild(data);
+    data.name = 'lines[1]';
+    form.appendChild(data);
+    data.name = 'lines[2]';
+    form.appendChild(data);
+
+    document.body.appendChild(form);
     form.submit();
 }
