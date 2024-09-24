@@ -11,11 +11,12 @@ $contents = glob("{$dir_data}/*");
 
 <?php
 foreach ($contents as $content) {
-    echo $content;
+    // echo $content;
     $lines = file($content);
     foreach ($lines as $line) {
-        echo $line.'<br>';
+        echo $line.' | ';
     }
+    echo '<br>';
 }
 ?>
 
