@@ -23,5 +23,7 @@ function post_content(){
         index++;
     }
 
+    document.body.appendChild(form); // documentに紐づけないとエラーが出る "Form submission canceled because the form is not connected"
+
     form.submit();
 }
