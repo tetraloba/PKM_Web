@@ -11,7 +11,9 @@ $contents = glob("{$dir_data}/*");
 
 <?php
 foreach ($contents as $content) {
-    echo $content.'<br>';
+    echo $content;
+    $f = file($content);
+    echo $f;
 }
 ?>
 
