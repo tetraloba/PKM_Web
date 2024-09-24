@@ -7,8 +7,8 @@ if (!isset($_GET['page'])) {
 }
 $page_filename = $_GET['page'];
 $lines = file("{$dir_data}/{$page_filename}"); // path.join()無いのか…
-if (!$file) {
-    html_exit("プレイリスト {$playlist_filename} を開けませんでした。");
+if (!$lines) {
+    html_exit("ページ {$page_filename} を開けませんでした。");
 }
 ?>
 
