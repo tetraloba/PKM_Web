@@ -35,7 +35,7 @@ foreach ($lines as $line) {
     if ($line == "\n") {
         $line = '<br>';
     }
-    echo '"'.'<p class="line">'.$line.'</p>'.'"';
+    echo '<p class="line">'.'"'.$line.'"'.'</p>';
 }
 ?>
 
