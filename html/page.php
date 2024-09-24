@@ -12,7 +12,7 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
     var_dump($lines);
-    $data = implode('\n', $lines).'\n'; // 文字列配列$linesを一つの文字列に．
+    $data = implode("\n", $lines)."\n"; // 文字列配列$linesを一つの文字列に．
     file_put_contents($page_filepath, $data);
 }
 
