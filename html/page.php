@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
     var_dump($lines); // debug
     $data = implode("\n", $lines); // 文字列配列$linesを一つの文字列に．
+    $data = html_entity_decode($data); // HTMLエンティティを本来の文字に還元 &amp; → &
     file_put_contents($page_filepath, $data);
 }
 
@@ -35,7 +36,8 @@ foreach ($lines as $line) {
     if ($line == "\n") {
         $line = '<br>';
     }
-    echo '<pre class="line">'.$line.'</pre>';
+    $line = htmlentities($line); // HTMLエンティティに変換 & → &amp;
+    echo '<p class="line">'.$line.'</p>'."\n";
 }
 ?>
 
