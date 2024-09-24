@@ -6,7 +6,7 @@ function print_content(){
     // console.log(text_area.textContent);
 }
 
-window.onload = print_content;
+window.onload = print_content; // debug
 
 function post_content(){
     const form = document.createElement('form');

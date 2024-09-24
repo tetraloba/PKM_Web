@@ -11,7 +11,7 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 /* POSTメソッドで呼び出された場合，ファイルを更新する． */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lines = $_POST['lines'];
-    // var_dump($lines); // debug
+    var_dump($lines); // debug
     $data = implode("\n", $lines); // 文字列配列$linesを一つの文字列に．
     file_put_contents($page_filepath, $data);
 }
