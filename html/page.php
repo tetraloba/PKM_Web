@@ -10,12 +10,15 @@ $page_filepath = "{$dir_data}/{$page_filename}";
 
 /* POSTメソッドで呼び出された場合，ファイルを更新する． */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!isset($_POST['lines'])) {
-        html_exit('linesが設定されていません');
+    if (isset($_POST['lines'])) {
+        $lines = $_POST['lines'];
+    } else {
+        /* linesが設定されていない場合は新規作成 */
+        $lines = [];
     }
-    $lines = $_POST['lines'];
-    if (count($lines) < 3) {
-        html_exit('linesの要素数が不足しています');
+    /* linesが要素数3未満の場合は要素数3になるまで空行を追加 */
+    for ($i = count($lines); $i < 3; $i++) {
+        array_push($lines, '%0A');
     }
     var_dump($lines); // debug
     $data = implode("", $lines); // 文字列配列$linesを一つの文字列に．

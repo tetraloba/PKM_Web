@@ -34,14 +34,6 @@ function create_content(){
     form.action = './page.php?page=' + page_path; // /page.php?=日付.txt
     form.method = 'post';
 
-    /* 3行の空行を追加 */
-    for (let i = 0; i < 3; i++) {
-        const data = document.createElement('input');
-        data.value = encodeURIComponent("\n");
-        data.name = 'lines[' + i + ']';
-        form.appendChild(data);
-    }
-
     document.body.appendChild(form);
     form.submit();
 }
