@@ -22,7 +22,7 @@ if (!$file) {
 
 <?php
 foreach ($lines as $line) {
-    echo '<p class="line">'.$line.'</p><br>\n'
+    echo '<p class="line">'.$line.'</p><br>\n';
 }
 ?>
 
