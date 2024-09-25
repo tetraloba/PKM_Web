@@ -11,8 +11,8 @@ window.onload = print_content; // debug
 function post_content(){
     const form = document.createElement('form');
     form.action = '';
-    form.method = 'post';
 
+    /* text_areaの文章を$_POST['lines[]']に詰める */
     let text_area = document.getElementById('text_area');
     let index = 0;
     for (line of text_area.children) {
@@ -23,8 +23,21 @@ function post_content(){
         index++;
     }
 
-    document.body.appendChild(form); // documentに紐づけないとエラーが出る "Form submission canceled because the form is not connected"
-    form.submit();
+    /* Fetch API で バックグラウンドで POSTする */
+    const formData = new FormData(form);
+    const action = form.getAttribute("action");
+    const options = {
+        method: 'POST',
+        body: formData,
+    }
+    fetch(action, options).then((e) => {
+        if (e.status === 200) {
+            console.log('saved');
+            // ページをリロードする？
+        } else {
+            console.log('fail to save');
+        }
+    })
 }
 
 function create_content(){
