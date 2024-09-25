@@ -53,7 +53,8 @@ foreach ($lines as $line) {
 ?>
 
 </div>
-<button onclick="post_content()">post</button>
+<button onclick="post_content()">post</button><br>
+<br>
 
 <?php
 close_html();
