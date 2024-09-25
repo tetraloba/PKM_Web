@@ -2,6 +2,8 @@
 require("html_subr.php");
 $dir_data = './data';
 
+open_html('page');
+
 if (!isset($_GET['page'])) {
     html_exit("ページが選択されていません"); // 新しいページを生成する，でも良いかな
 }
@@ -33,13 +35,11 @@ if (!$lines) {
 }
 ?>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="./css/page.css">
-        <script src="./js/page.js"></script>
-    </head>
-    <body>
-        <div id="text_area" contenteditable="true">
+
+<link rel="stylesheet" href="./css/page.css">
+<script src="./js/page.js"></script>
+
+<div id="text_area" contenteditable="true">
 
 <?php
 foreach ($lines as $line) {
@@ -52,7 +52,10 @@ foreach ($lines as $line) {
 }
 ?>
 
-        </div>
-        <button onclick="post_content()">post</button>
-    </body>
-</html>
+</div>
+<button onclick="post_content()">post</button><br>
+<br>
+
+<?php
+close_html();
+?>
